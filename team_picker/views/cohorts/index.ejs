@@ -1,0 +1,30 @@
+<%- include("../partials/header.ejs") %> 
+<h3>cohorts List</h3>
+<div >
+
+    <% for(let cohort of list) {%>
+        <span class="border border-primary">
+        <div>
+            
+            <img src='<%= cohort.logoUrl%>' class="rounded-circle" width="42" height="42" style="float:left" alt="..."> <p style="float:left"><%= cohort.name%> </p>
+             
+            
+            <br><br>
+             
+            <p>
+                <%= cohort.members%>
+            </p>
+            <br>
+        </div>
+        <form method="POST" action="/cohorts/<%= cohort.id %>">
+            
+            <button type="submit" class="btn btn-primary">Show cohort</button>
+        </form>
+    </span>
+    <br>
+        
+    <% } %>
+   
+</div>
+
+<%- include("../partials/footer.ejs") %> 
