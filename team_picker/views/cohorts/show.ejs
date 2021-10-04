@@ -1,0 +1,55 @@
+<%- include("../partials/header") %>
+<script src="/js/assing_teams.js"></script>
+<div>
+     
+    <h5>
+        <%= cohort.name%>    
+    </h5>
+    <br>
+    <p id="members">
+        <%= cohort.members%>
+    </p>
+</div>
+<div class="form-check">
+    <p>Method</p>
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="TeamCount">
+    <label class="form-check-label" for="flexRadioDefault1">
+      Team Count
+    </label>
+</div>
+  <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="NumberPerTeam" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+        Number Per Team
+        </label>
+    <div class="form-group">
+        <label for="members" class="form-label">Quantity</label>
+        <br>
+        <textarea class="form-control" id="Quantity"></textarea>
+      
+  </div>
+  <br>
+  
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="button" id="Assign_team" onclick="myFunction()">
+        Assign teams</button>
+   
+</div>
+
+    <p>#Members</p>
+    <ol id="list" ></ol>
+            
+<br>
+<form method="POST" action="/cohorts/<%= cohort.id %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" class="btn btn-outline-danger" value="Delete">
+</form>
+<br>
+<div class="d-flex">
+    <a class="btn btn-outline-success mr-2"
+        href="/cohorts/<%= cohort.id %>/edit">
+        Edit
+    </a>
+</div>
+ 
+<%- include("../partials/footer") %>

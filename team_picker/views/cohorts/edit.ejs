@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<h1>Edit cohort</h1>
+<form method="POST" action="/cohorts/<%= cohort.id %>">
+    <input type="hidden" name="_method" value="PATCH">
+    <div class="form-group">
+        <input 
+            type="text"
+            class="form-control" 
+            name="name" 
+            placeholder="Enter your name"
+            value="<%= cohort.name %>"
+        >
+        <br>
+    </div>
+    <div class="form-group">
+        <textarea 
+            class="form-control"
+            name="members" 
+            placeholder="Enter your members"
+        ><%= cohort.members %></textarea>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-outline-success" value="Edit">
+</form>
+
+<%- include('../partials/footer') %>
